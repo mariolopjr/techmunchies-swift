@@ -1,0 +1,9 @@
+#extend("base")
+
+#export("title") { techmunchies }
+#export("page-class") { blog-light }
+
+#export("content") {
+<div class="blog">
+</div>
+}

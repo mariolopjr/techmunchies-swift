@@ -9,8 +9,13 @@ final class Routes: RouteCollection {
     func build(_ builder: RouteBuilder) throws {
         /// GET /
         builder.get { req in
-            return try self.view.make("welcome")
+            return try self.view.make("home", [
+                "homepage": "true"
+            ])
         }
+
+        /// GET /blog/...
+        builder.resource("blog", BlogController(view))
         
         /// GET /hello/...
         builder.resource("hello", HelloController(view))
@@ -20,6 +25,5 @@ final class Routes: RouteCollection {
         builder.get("info") { req in
             return req.description
         }
-        
     }
 }
